@@ -95,7 +95,7 @@ const RemoveBackground = () => {
                             scale: 0.9
                         }}
                             disabled={!image}
-                            className='button'
+                            className={`button ${image ? "button" : "opacity-0"}`}
                             type="button"
                             onClick={RemoveBackgroundImage}
                         >
