@@ -1,16 +1,20 @@
 import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import logo from "@/public/logo.svg"
 
 const Navbar = () => {
     return (
         <div>
-            <nav class="bg-gray-50 border-gray-50">
+            <nav class=" border-gray-50">
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen p-2">
-                    <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
-                        <span class="self-center text-xl font-semibold whitespace-nowrap text-black">BgRemover</span>
-                    </a>
+                    <Link href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <Image className='h-10 w-10 object-contain' src={logo} alt='' />
+                        <span class="self-center text-lg font-semibold whitespace-nowrap text-black uppercase">BgRemover</span>
+                    </Link>
                     <div class="flex items-center space-x-6 rtl:space-x-reverse">
-                        <a href="tel:5541251234" class="text-xs  text-purple-500 hover:underline">(555) 412-1238</a>
-                        <a href="#" class="text-xs  text-blue-600 dark:text-blue-500 hover:underline">Login</a>
+                        <a href="#" class="text-sm  text-purple-500 hover:bg-purple-500 transition-all 300ms ease-in-out hover:text-white p-2 px-4 border border-purple-500 rounded-md">Sign up</a>
+                        <a href="#" class="text-sm  text-blue-600  hover:bg-blue-600 hover:text-white border border-blue-600 transition-all 300ms ease-in-out p-2 px-4 rounded-md">Login</a>
                     </div>
                 </div>
             </nav>

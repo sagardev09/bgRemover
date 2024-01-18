@@ -5,7 +5,7 @@ import Footer from './components/Footer'
 
 export default function Home() {
   return (
-    <main className=''>
+    <main className='flex flex-col bg-[#DBE7C9]'>
       <Navbar />
       <RemoveBackground />
       <Footer />

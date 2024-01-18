@@ -108,3 +108,72 @@
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
   }
 }
+
+/* {code css} */
+
+/* Terminal Window */
+.terminal {
+  width: 100%;
+  background-color: #000;
+  color: #0f0;
+  font-family: "Courier New", Courier, monospace;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Terminal Header */
+.terminal-header {
+  background-color: #333;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.buttons {
+  display: flex;
+  margin-right: 15px;
+}
+
+.buttons span {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.close {
+  background-color: #ff605c;
+}
+.minimize {
+  background-color: #ffbd44;
+}
+.maximize {
+  background-color: #00ca4e;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Terminal Body */
+.terminal-body {
+  padding: 10px;
+}
+
+.terminal-loader {
+  display: inline-flex;
+  align-items: center;
+}
+
+.loader-text {
+  margin-right: 5px;
+}
+
+.dot {
+  opacity: 0;
+  animation: dotFadeInOut 1.5s infinite;
+}

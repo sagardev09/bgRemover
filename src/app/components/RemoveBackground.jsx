@@ -1,6 +1,9 @@
 "use client"
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { toast } from 'react-toastify'
+import { Bounce } from 'react-toastify'
+
 
 
 const RemoveBackground = () => {
@@ -40,12 +43,26 @@ const RemoveBackground = () => {
 
 
     return (
-        <div className='h-full w-full overflow-hidden p-4'>
+        <div className='h-full w-full overflow-hidden p-4 '>
             <div className='flex items-center justify-center gap-10'>
                 <div className='flex-1 flex flex-col gap-4'>
-                    <div className='max-w-[750px] flex flex-col gap-2'>
-                        <h1 className='text-6xl font-bold text-purple-500 capitalize'>Free image background remover</h1>
-                        <h5 className='text-base font-normal'>Easily remove the background from photos. Edit them even further in here where you can change the background, add graphics, and more.</h5>
+                    <div className='max-w-[850px] flex flex-col gap-8'>
+                        <h1 className='bg-gradient-to-r from-blue-500 to-purple-500 text-7xl font-extrabold capitalize bg-clip-text text-transparent'>Free image background remover</h1>
+                        <div className="terminal mt-3">
+                            <div className="terminal-header">
+                                <div className="buttons">
+                                    <span className="close"></span>
+                                    <span className="minimize"></span>
+                                    <span className="maximize"></span>
+                                </div>
+                                <div className="title">What we can do for you!!</div>
+                            </div>
+                            <div className="terminal-body">
+                                <div className="terminal-loader">
+                                    <span className="loader-text text-base font-normal">Easily remove the background from photos. Edit them even further in here where you can change the background, add graphics, and more.</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     {!image && <div className="input">
                         <label className="file-label inline-block cursor-pointer relative overflow-hidden font-medium text-sm">
@@ -62,19 +79,22 @@ const RemoveBackground = () => {
                             }}
                             type="button"
                             onClick={() => document.getElementById('fileInput').click()}
-                            className="custom-file-button bg-blue-500 text-white py-2 px-4 rounded-lg cursor-pointer hover:bg-blue-400"
+                            className="cursor-pointer transition-all bg-blue-500 text-white px-10 py-2
+                             rounded-lg border-blue-600
+border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
+active:border-b-[2px] active:brightness-90 active:translate-y-[2px] mt-6"
                         >
                             Select File
                         </motion.button>
                     </div>}
 
-                    <div className='flex gap-4'>
-                        <div>
+                    <div className='flex gap-4 items-center justify-between'>
+                        <div className='flex-1 flex items-center justify-center'>
                             {image && <div className="border-2 border-gray-500 rounded-l-lg border-dashed flex justify-center p-2 w-40 lg:w-80">
                                 <img className="w-90 h-90" src={image ? URL.createObjectURL(image) : ''} alt="img" />
                             </div>}
                         </div>
-                        <div>
+                        <div className='flex-1 flex items-center justify-center'>
                             {bgimage && <div className="border-2 border-gray-500 rounded-r-lg border-dashed flex justify-center p-2 w-40 lg:w-80">
                                 <img className="w-90 h-90" src={bgimage} alt="img" />
                             </div>
@@ -82,10 +102,20 @@ const RemoveBackground = () => {
                         </div>
                     </div>
                     <div>
-                        {bgimage && <div className="flex justify-center max-w-[750px]">
-                            <a className='w-full' href={bgimage} download={'save.png'}>
-                                <button className=' bg-purple-500 text-white w-full py-2 px-3 rounded-lg border border-purple-600'>
-                                    Download
+                        {bgimage && <div className="flex justify-center max-w-[850px]">
+                            <a className='w-full' href={bgimage} download={'save.png'} onClick={() => toast.success('🦄 Download complete!', {
+                                position: "top-right",
+                                autoClose: 3000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "light",
+                                transition: Bounce,
+                            })} >
+                                <button className=' bg-purple-500 text-white w-full py-2 px-3  rounded-lg border border-purple-600'>
+                                    Your file is ready
                                 </button>
                             </a>
                         </div>}
@@ -139,15 +169,15 @@ const RemoveBackground = () => {
                                     d="M15.078,19.043c1.957-0.326,5.122-0.529,4.435,1.304c-0.489,1.304-7.185,2.185-7.185,0.652 C12.328,19.467,15.078,19.043,15.078,19.043z"
                                 ></path>
                             </svg>
-                            <span class="now">now!</span>
-                            <span class="play">remove</span>
+                            <span className="now">now!</span>
+                            <span className="play">remove</span>
                         </motion.button> :
-                            <span class="loader"></span>
+                            <span className="loader"></span>
                         }
                     </div>}
                 </div>
                 <div className='flex-1'>
-                    <video playsInline autoPlay loop muted>
+                    <video playsInline autoPlay loop muted className='mix-blend-multiply'>
                         <source src='bg.mp4' type='video/mp4' />
                     </video>
                 </div>
